@@ -36,6 +36,9 @@
           <element id="library" level="project" name="Maven: xpp3:xpp3_min:1.1.4c" />
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:3.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.5" />
         </element>
       </element>
       <element id="directory" name="META-INF">
