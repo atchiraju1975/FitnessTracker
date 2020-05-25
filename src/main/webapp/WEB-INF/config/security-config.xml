@@ -12,8 +12,9 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/**" access="ROLE_USER" />
-        <http-basic/>
+        <intercept-url pattern="/login.html" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <intercept-url pattern="/**" access="ROLE_USER"/>
+        <form-login login-page="/login.html"/>
     </http>
 
     <authentication-manager>
