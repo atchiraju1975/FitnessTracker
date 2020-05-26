@@ -2,8 +2,10 @@ package com.pluralsight.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +26,8 @@ public class GoalController {
 		
 		return "addGoal";
 	}
-	
+
+	@PreAuthorize("hasRole('ROLE_ADMIN') and hasPermission(#goal,'createGoal')"")
 	@RequestMapping(value = "addGoal", method = RequestMethod.POST)
 	public String updateGoal(@Valid @ModelAttribute("goal") Goal goal, BindingResult result) {
 		
@@ -37,6 +40,11 @@ public class GoalController {
 		}
 		
 		return "redirect:index.jsp";
+	}
+
+	@RequestMapping(value="/405", method=RequestMethod.GET)
+	public String error403(ModelMap model) {
+		return "405";
 	}
 	
 }
